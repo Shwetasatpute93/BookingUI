@@ -1,0 +1,168 @@
+<div class="container-fluid p-4">
+    <div class="container text-center">
+        <div class="row mb-4">
+            <form [formGroup]="searchForm" >
+              <div class="input-group">
+                <!-- <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="visually-hidden">Toggle Dropdown</span>
+                  Wakad
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#">Pune</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul> -->
+                <select class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" formControlName="area">
+                  <option value="Wakad">Wakad</option>
+                  <option value="Aundh">Aundh</option>
+                  <option value="Punawale">Punawale</option>
+                  <option value="Tahawade">Tahawade</option>
+                  <option value="Baner">Baner</option>
+                </select>
+                  <input type="text" class="form-control" formControlName="turfname" list="datalistOptions" id="exampleDataList" aria-label="Text input with segmented dropdown button" placeholder="Select Your location">
+                  <datalist id="datalistOptions">
+                    <option value="Turf 10 Wakad">
+                    <option value="30YCA Cricket Ground">
+                    <option value="Wakad Premier League Cricket Ground">
+                    <option value="Kaverinagar Football Turf">
+                    <option value="Kridangan Turf & Badminton">
+                  </datalist>
+                  <button type="submit" class="btn btn-outline-secondary" (click)="onSubmit()">
+                      <i class="bi bi-search"></i>
+                  </button>
+                 
+              </div>
+            </form>
+
+        </div>
+        <div class="row mb-4" *ngIf="showturf">
+          <table class="table table-striped">
+            <h3>Turf 10 Wakad</h3>
+            <!-- <thead>
+                <tr>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Email</th>
+                </tr>
+              </thead> -->
+              <tbody>
+                <tr >
+                  <td>
+                    <img src="assets/img/cricket.jpg" class="card-img-top rounded mx-auto d-block " alt="..." height="150px" width="150px">
+                  </td>
+                  
+                  <td>
+                    Address : HQQ8+JWP, Unnamed Road, Wakad, Pimpri-Chinchwad, Maharashtra 411057
+                  </td>
+                  <td>
+                    <a class="btn btn-success" (click)=toggleDisplayDiv()>Book Now</a>
+                  </td>
+                </tr>
+             
+              </tbody>
+        </table>
+        </div>
+        <div class="row mb-4" *ngIf="isShowDiv">
+          <div class="col-5">
+            <h3>Turf 10 Wakad</h3>
+            <div>
+              Address : HQQ8+JWP, Unnamed Road, Wakad, Pimpri-Chinchwad, Maharashtra 411057
+            </div>
+          </div>
+          <div class="col-5 align-self-center">
+          <form>
+            
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label" style="text-align: left;">Select Your Time Slot</label>
+                <select class="form-select"  formControlName="timeing">
+                  <option value="12pm-1pm">12pm-1pm</option>
+                  <option value="1pm-2pm">1pm-2pm</option>
+                  <option value="4pm-5pm">4pm-5pm</option>
+                  <option value="5pm-6pm">5pm-6pm</option>
+                  <option value="6pm-7pm">6pm-7pm</option>
+                  <option value="7pm-8pm">7pm-8pm</option>
+                  <option value="8pm-9pm">8pm-9pm</option>
+                  <option value="9pm-10pm">9pm-10pm</option>
+              </select>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Rate</label>
+                <input class="form-control" formControlName="rate" id="rate" value="1000" readonly>
+              </div>
+              <div class="mb-3">
+                <button type="submit" class="btn btn-outline-primary" (click)="onBooking()">
+                  pay & Book
+              </button>
+              </div>
+            </form>
+            </div>
+           
+              
+              
+         
+        </div>
+        <!-- <div class="row mb-4">
+
+            <h4>Popular Localities</h4>
+            <h6>Explore grounds & venues in and around popular areas of your city</h6>
+        
+            <div class="col">
+                <a class="btn btn-outline-primary m-2" (click)=toggleDisplayDiv()>Punawale (1)</a>
+                <a class="btn btn-outline-primary m-1">Tahawade (2)</a>
+                <a class="btn btn-outline-primary m-2">Baner (2)</a>
+            
+                <a class="btn btn-outline-primary m-2">Aundh (3)</a>
+                <a class="btn btn-outline-primary m-2">Baner (2)</a>
+                <a class="btn btn-outline-primary m-2">Balewadi (2)</a>
+            
+                <a class="btn btn-outline-primary m-1">Tahawade  (2)</a>
+                <a class="btn btn-outline-primary m-2">Baner (2)</a>
+                <a class="btn btn-outline-primary m-2">Balewadi (2)</a>
+            </div>
+
+        </div>
+        <div class="row" *ngIf="isShowDiv">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th>Firstname</th>
+                      <th>Lastname</th>
+                      <th>Email</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr >
+                      <td>
+                        <img src="assets/img/cricket.jpg" class="card-img-top rounded mx-auto d-block " alt="...">
+                      </td>
+                      <td>
+                        Address : Punavale
+                      </td>
+                      <td>
+                        <a class="btn btn-success" onclick="">Book Now</a>
+                      </td>
+                    </tr>
+                 
+                  </tbody>
+            </table>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item" [class.disabled]="pager.currentPage === 1">
+                    <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
+                  </li>
+                  <li class="page-item" *ngFor="let page of pager.pages" [class.active]="pager.currentPage === page">
+                    <a class="page-link" (click)="setPage(page)">{{page}}</a>
+                  </li>
+                  <li class="page-item" [class.disabled]="pager.currentPage === pager.totalPages">
+                    <a class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+                  </li>
+                </ul>
+              </nav>
+        </div> -->
+
+    </div>
+</div>
