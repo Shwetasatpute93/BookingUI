@@ -1,19 +1,40 @@
 <div class="container-fluid p-4">
     <div class="container text-center">
-        <div class="row mb-2">
-          <div class="col">
-            <div class="card" style="width: 18rem;">
+        <div class="row">
+
+          <div class="row mb-4">
+            <form [formGroup]="searchForm" >
+              <div class="col-8 input-group">
+              
+                <select class="form-select  mb-3" aria-label="Large select example" formControlName="area">
+                  <option *ngFor="let selectedarea of getalldata; let i = index"  [value]='selectedarea.area'>{{selectedarea.area}}</option>
+                  <!-- <option value="Aundh">Aundh</option>
+                  <option value="Punawale">Punawale</option>
+                  <option value="Tahawade">Tahawade</option>
+                  <option value="Baner">Baner</option> -->
+                </select>
+                  <button type="submit" class="btn btn-outline-secondary search" (click)="onSubmit()">
+                      <i class="bi bi-search"></i>
+                  </button>
+                 
+              </div>
+            </form>
+
+        </div>
+          <div class="col" *ngFor="let item of getdata ">
+            <div class="card" style="width: 18rem;" >
                 <div class="img-hover-zoom">
                     <img src="assets/img/cricket.jpg" class="card-img-top rounded mx-auto d-block " alt="...">
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">Cricket</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a class="btn btn-primary"  routerLink="/location">Select Your Location</a>
+                  <h5 class="card-title">{{item.turfname}}</h5>
+                  <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                  <a class="btn btn-primary"  (click)="book(item.regid)" >Book Now</a>
                 </div>
               </div>
           </div>
-          <div class="col">
+          
+          <!-- <div class="col">
             <div class="card" style="width: 18rem;">
                 <div class="img-hover-zoom">
                     <img src="assets/img/football.jpg" class="card-img-top rounded mx-auto d-block" alt="...">
@@ -80,6 +101,6 @@
                     </div>
                   </div>
               </div>
-          </div>
+          </div> -->
       </div>
 </div>

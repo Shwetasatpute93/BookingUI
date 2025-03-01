@@ -1,0 +1,28 @@
+<div class="container-fluid mb-4">
+
+            
+            <div class="col p-4" *ngIf="isShowDiv">
+                <div class="card" style="width: 25rem;" >
+                    <h4>Your Transaction id is {{transaction_id}}</h4>
+                    <div class="img-hover-zoom">
+                        <img src="assets/img/canceled.jpg" class="card-img-top rounded mx-auto d-block " alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h1>Thank You For visit...!</h1>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col p-4" *ngIf="isShowconfirm">
+                <div class="card" style="width: 25rem;" >
+                    <h4>Your Transaction id is {{transaction_id}}</h4>
+                    <div class="img-hover-zoom">
+                        <img src="assets/img/confirmed.png" class="card-img-top rounded mx-auto d-block " alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h3>Thank You..! Visit Again...!</h3>
+                    </div>
+                  </div>
+              </div>
+      
+</div>
